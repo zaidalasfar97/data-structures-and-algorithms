@@ -20,6 +20,11 @@ Becomes:
 
 function transformToLis(obj) {
   // Solution code here...
+  let arr = [];
+  for (const [key, value] of Object.entries(obj)) {
+    arr.push(`<li>${key}: ${value}</li>`);
+  }
+  return arr;
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -152,6 +157,11 @@ Note: You must use reduce for this challenge. You may not use the built-in .reve
 
 const reversedString = (str) => {
   // Solution code here...
+  let arr = str.split('');
+  let rev = arr.reduce((accumulator, value) => {
+    return value + accumulator;
+  }, '');
+  return rev;
 };
 
 /* ------------------------------------------------------------------------------------------------

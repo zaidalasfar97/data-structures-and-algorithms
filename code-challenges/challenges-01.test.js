@@ -97,11 +97,18 @@ Return the modified array.
 
 const addValues = (arr, value) => {
   // Solution code here...
+  arr.push(value);
 
 };
 
 const addNumbers = (num, arr, times, callback) => {
   // Solution code here...
+  let newArray = [];
+  for (let i = 0; i < times; i++) {
+    callback(arr, num);
+    newArray.push(num);
+  }
+  return newArray;
 
 };
 
