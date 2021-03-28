@@ -9,4 +9,4 @@
 
 
 ## Solution
-![Solution](../../assets/screenshot(48).png)
+![Solution](../../assets/zzz.png)
