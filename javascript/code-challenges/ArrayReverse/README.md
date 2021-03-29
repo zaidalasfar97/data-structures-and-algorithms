@@ -9,4 +9,5 @@
 
 
 ## Solution
-![Solution](../../assets/zzz.png)
+
+![Solution](../../assets/array-reverse.png)
