@@ -1,52 +1,67 @@
 'use strict';
-const Node = require('./node');
 
+class Node {
+    constructor(value, next = null) {
+        this.value = value;
+        this.next = next;
+    }
+}
 class LinkedList {
     constructor() {
         this.head = null;
+        this.length = 0;
     }
 
-
     insert(value) {
-        let newData = new Node(value);
-        if (!this.head) {
-            this.head = newData;
-        } else {
-            newData.next = this.head;
-            this.head = newData;
+        try {
+            let newData = this.head;
+            this.head = new Node(value, newData);
+            this.length++;
+
+        }
+        catch (error) {
+            console.log('insert method', error);
         }
     }
 
     includes(value) {
-        if (this.head) {
-            let includeNode = this.head;
-            if (includeNode.value === value) {
-                return true;
-            }
-            while (includeNode.next) {
-                includeNode = includeNode.next;
-                if (includeNode.value === value) {
+        try {
+
+            let includeData = this.head;
+
+            while (includeData) {
+                if (includeData.value === value) {
                     return true;
                 }
+                includeData = includeData.next;
             }
+            return false;
+        } catch (error) {
+            console.log('includes method', error);
         }
-        return false;
     }
 
     toString() {
-        let linkedlistString = '';
-        if (!this.head) linkedlistString = 'Null';
-        else {
-            let current = this.head;
-            linkedlistString = `{ ${current.value} } -> `;
-            while (current.next) {
-                current = current.next;
-                linkedlistString += `{${current.value}} -> `;
+        try {
+            let linkList = "";
+
+            while (this.head) {
+                linkList += `{${this.head.value}} -> `
+                this.head = this.head.next;
             }
-            linkedlistString += `NULL`;
+            linkList += "Null";
+            console.log(linkList);
+            return linkList;
+        } catch (error) {
+            console.log('toString method', error);
         }
-        return linkedlistString;
     }
 }
 
-module.exports = LinkedList;
+
+const ll = new LinkedList();
+
+module.exports = {
+    Node: Node,
+    LinkedList: LinkedList
+}
