@@ -1,67 +1,98 @@
 'use strict';
 
-class Node {
-    constructor(value, next = null) {
-        this.value = value;
-        this.next = next;
-    }
-}
+const Node = require('./node.js');
+
 class LinkedList {
     constructor() {
         this.head = null;
-        this.length = 0;
+        this.size = 0;
     }
-
     insert(value) {
-        try {
-            let newData = this.head;
-            this.head = new Node(value, newData);
-            this.length++;
+        const node = new Node(value);
+        node.next = this.head;
+        this.head = node;
+        this.size++;
 
-        }
-        catch (error) {
-            console.log('insert method', error);
-        }
+        return this;
     }
-
     includes(value) {
-        try {
-
-            let includeData = this.head;
-
-            while (includeData) {
-                if (includeData.value === value) {
-                    return true;
-                }
-                includeData = includeData.next;
+        let newNode = this.head;
+        while (newNode) {
+            if (newNode.value === value) {
+                console.log(true);
+                return true;
+            } else {
+                newNode = newNode.next;
             }
-            return false;
-        } catch (error) {
-            console.log('includes method', error);
         }
+        return false;
     }
-
     toString() {
-        try {
-            let linkList = "";
-
-            while (this.head) {
-                linkList += `{${this.head.value}} -> `
-                this.head = this.head.next;
-            }
-            linkList += "Null";
-            console.log(linkList);
-            return linkList;
-        } catch (error) {
-            console.log('toString method', error);
+        let str = '';
+        let newNode = this.head;
+        while (newNode) {
+            str += `{ ${newNode.value} } -> `;
+            newNode = newNode.next;
         }
+        return str + 'NULL';
     }
-}
 
+    insertBefore(value, newVal) {
+        const node = new Node(newVal);
+        console.log(node);
+        console.log('head', this.head);
+        if (!this.head) {
+            this.head = node;
+            return this;
+        }
+        let currentNode = this.head;
+        while (currentNode.value !== value) {
+            currentNode = currentNode.next;
+        }
+        console.log('currentNode', currentNode);
+        node.next = currentNode;
+        console.log('node', node);
+        this.head.next = node;
+        console.log(this.head);
+        this.size++;
+
+        return this;
+    }
+    insertAfter(value, newVal) {
+        const node = new Node(newVal);
+        console.log(node);
+        if (!this.head) {
+            this.head = node;
+            return this;
+        }
+        let currentNode = this.head;
+        console.log(currentNode);
+        while (currentNode.value !== value) {
+            console.log(currentNode.value);
+            currentNode = currentNode.next;
+        }
+        node.next = currentNode.next;
+        currentNode.next = node;
+        console.log(this.head);
+        this.size++;
+
+        return this;
+    }
+    append(value) {
+        const node = new Node(value);
+        if (!this.head) {
+            this.head = node;
+            return this;
+        }
+        let currentNode = this.head;
+        while (currentNode.next) {
+            currentNode = currentNode.next;
+        }
+        currentNode.next = node;
+        return this;
+    }
+
+}
 
 const ll = new LinkedList();
-
-module.exports = {
-    Node: Node,
-    LinkedList: LinkedList
-}
+module.exports = LinkedList;
