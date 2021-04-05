@@ -92,6 +92,23 @@ class LinkedList {
         return this;
     }
 
+    kthFromEnd(k) {
+        let index = this.size - k - 1;
+
+        if (k > this.size || k < 0 || index < 0) {
+            let msg = 'Exception';
+            return msg;
+        } else {
+            let currNode = this.head;
+
+            for (let i = 0; i < index; i++) {
+                currNode = currNode.next;
+            }
+            console.log(currNode.value);
+            return currNode.value;
+        }
+    }
+
 }
 
 const ll = new LinkedList();

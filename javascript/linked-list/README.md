@@ -23,6 +23,8 @@
 
 ### insert after : which add a new node with the given newValue immediately after the first value node 
 
+### kth From End :Write a method for the Linked List class which takes a number, k, as a parameter. Return the node’s value that is k from the end of the linked list.
+
 
 # API : 
 ### We have three method : 
@@ -32,3 +34,4 @@
 
 
 ![Solution](./img/linked-list.png)
+![Solution](./img/22.png)
