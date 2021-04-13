@@ -19,18 +19,18 @@ function multiBracketValidation(val) {
 
             if (value === '(' && val[index] == '(') {
                 return false;
-            }
-
-            if (value === '[' && val[index] == '[') {
+            } else if (value === '[' && val[index] == '[') {
+                return false;
+            } else if (value === '{' && val[index] == '{') {
                 return false;
             }
 
-            if (value === '{' && val[index] == '{') {
-                return false;
-            }
+
 
         }
     }
+
+
     if (stack.length > 0) {
         console.log('false');
         return false;
@@ -42,6 +42,7 @@ function multiBracketValidation(val) {
 };
 
 multiBracketValidation('{}')
+
 
 multiBracketValidation('{}(){}')
 
