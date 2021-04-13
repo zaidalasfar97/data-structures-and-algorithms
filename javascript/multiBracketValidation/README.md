@@ -14,4 +14,4 @@
 #### Big O:space O(1) time O(n)
 
 # Solution
-![Solution](./pic.png)
+![Solution](./pic1.png)
