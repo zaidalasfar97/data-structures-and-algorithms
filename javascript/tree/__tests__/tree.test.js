@@ -58,4 +58,12 @@ describe('Binary Tree', () => {
         expect(bst.root.left.value).toEqual(7);
         expect(bst.root.right.value).toEqual(15);
     })
+
+    it('Should find maximum value of tree', () => {
+        const bst = new BinarySearchTree();
+        bst.add(10);
+        bst.add(7);
+        bst.add(15);
+        expect(bst.findMaximumValue()).toBe(15);
+    })
 });

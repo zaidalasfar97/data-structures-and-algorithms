@@ -105,20 +105,31 @@ class BST {
         }
         return currentNode;
     }
-
+    findMaximumValue() {
+        if (!this.root) {
+            return `The tree is empty :(`;
+        }
+        let maxValue = this.root;
+        while (maxValue.right !== null) {
+            maxValue = maxValue.right;
+        }
+        console.log(maxValue);
+        return maxValue.value;
+    }
 }
 // const bst = new BST();
 // bst.add(15);
 // bst.add(25);
 // bst.add(34);
 // bst.add(46);
+// bst.add(55);
 // bst.contains(15);
 // bst.contains(25);
 // bst.contains(46);
 // bst.contains(34);
 // bst.contains(22);
 // bst.contains(324);
-
+// bst.findMaximumValue();
 
 
 module.exports = { BinaryTree, BST };
