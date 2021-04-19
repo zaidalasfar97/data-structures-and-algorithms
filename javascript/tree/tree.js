@@ -52,21 +52,37 @@ class BinaryTree {
         _traverse(this.root);
         return result;
     }
+
     findMaximumValue() {
-        if (!this.root) {
+        if (this.root === null) {
             return `The tree is empty :(`;
+            console.log('sdasd');
         }
-        const valueArr = this.inOrder;
         let findMax = this.root.value;
-        for (let i = 0; i < valueArr.length; i++) {
-            if (valueArr[i] > findMax) {
-                findMax = valueArr[i];
+        let valueArr = this.inOrder;
+        valueArr.forEach((value) => {
+            if (value > findMax) {
+                findMax = value;
             }
-        }
-        console.log(findMax);
+        });
         return findMax;
     }
+
+    breadthFirst() {
+        let result = [];
+        let arr = [];
+        let node = this.root;
+        arr.push(node);
+        while (arr.length) {
+            node = arr.shift();
+            result.push(node.val);
+            if (node.left) arr.push(node.left);
+            if (node.right) arr.push(node.right);
+        }
+        return result;
+    }
 }
+
 
 
 class BST {
@@ -98,6 +114,7 @@ class BST {
                     return null;
                 }
             };
+            // console.log(node);
             return addNewNode(node);
         }
     }
@@ -131,19 +148,22 @@ class BST {
     //     return maxValue.value;
     // }
 }
-// const tree = new BinaryTree();
-// const bst = new BST();
-// bst.add(15);
-// bst.add(25);
-// bst.add(34);
-// bst.add(46);
-// bst.add(55);
+const tree = new BinaryTree();
+const bst = new BST();
+tree.findMaximumValue();
+bst.add(15);
+bst.add(35);
+bst.add(34);
+bst.add(46);
+bst.add(55);
 // bst.contains(15);
 // bst.contains(25);
 // bst.contains(46);
 // // bst.contains(34);
 // // bst.contains(22);
 // // bst.contains(324);
+// tree.breadthFirstTraversal();
+tree.findMaximumValue();
 
 // console.log(tree.findMaximumValue());
 

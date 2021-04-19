@@ -40,7 +40,7 @@ describe('Binary Tree', () => {
         expect(postOrder).toEqual(expected);
     });
 
-    it('  Can successfully instantiate an empty tree', () => {
+    it('Can successfully instantiate an empty tree', () => {
         const bst = new BinarySearchTree();
         expect(bst.root).toBeNull();
     })
@@ -67,4 +67,5 @@ describe('Binary Tree', () => {
         bst.add(15);
         expect(tree.findMaximumValue()).toBe(15);
     })
+
 });
