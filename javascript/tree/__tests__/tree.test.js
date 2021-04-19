@@ -60,10 +60,11 @@ describe('Binary Tree', () => {
     })
 
     it('Should find maximum value of tree', () => {
+        const tree = new BinaryTree();
         const bst = new BinarySearchTree();
         bst.add(10);
         bst.add(7);
         bst.add(15);
-        expect(bst.findMaximumValue()).toBe(15);
+        expect(tree.findMaximumValue()).toBe(15);
     })
 });

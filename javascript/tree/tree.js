@@ -52,6 +52,20 @@ class BinaryTree {
         _traverse(this.root);
         return result;
     }
+    findMaximumValue() {
+        if (!this.root) {
+            return `The tree is empty :(`;
+        }
+        const valueArr = this.inOrder;
+        let findMax = this.root.value;
+        for (let i = 0; i < valueArr.length; i++) {
+            if (valueArr[i] > findMax) {
+                findMax = valueArr[i];
+            }
+        }
+        console.log(findMax);
+        return findMax;
+    }
 }
 
 
@@ -96,27 +110,28 @@ class BST {
                 // console.log('ture');
             } else {
                 currentNode = currentNode.right;
-                // console.log('ture');
+                console.log('ture');
             }
             if (currentNode === null) {
-                // console.log('false');
+                console.log('false');
                 return null;
             }
         }
         return currentNode;
     }
-    findMaximumValue() {
-        if (!this.root) {
-            return `The tree is empty :(`;
-        }
-        let maxValue = this.root;
-        while (maxValue.right !== null) {
-            maxValue = maxValue.right;
-        }
-        console.log(maxValue);
-        return maxValue.value;
-    }
+    // findMaximumValue() {
+    //     if (!this.root) {
+    //         return `The tree is empty :(`;
+    //     }
+    //     let maxValue = this.root;
+    //     while (maxValue.right !== null) {
+    //         maxValue = maxValue.right;
+    //     }
+    //     console.log(maxValue);
+    //     return maxValue.value;
+    // }
 }
+// const tree = new BinaryTree();
 // const bst = new BST();
 // bst.add(15);
 // bst.add(25);
@@ -126,10 +141,11 @@ class BST {
 // bst.contains(15);
 // bst.contains(25);
 // bst.contains(46);
-// bst.contains(34);
-// bst.contains(22);
-// bst.contains(324);
-// bst.findMaximumValue();
+// // bst.contains(34);
+// // bst.contains(22);
+// // bst.contains(324);
+
+// console.log(tree.findMaximumValue());
 
 
 module.exports = { BinaryTree, BST };
