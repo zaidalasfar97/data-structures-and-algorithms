@@ -1,7 +1,7 @@
 'use strict';
 const multiBracketValidation = require('../multi-bracket-validation.js');
 
-describe("Test multi bracket validation check", () => {
+xdescribe("Test multi bracket validation check", () => {
     it("Should return true ", () => {
         expect(multiBracketValidation("()[[]]")).toBeTruthy();
     });

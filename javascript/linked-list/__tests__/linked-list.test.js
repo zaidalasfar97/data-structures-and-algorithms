@@ -3,7 +3,7 @@
 const { expect } = require('@jest/globals');
 const LL = require('../linked-list');
 
-describe('Linked List', () => {
+xdescribe('Linked List', () => {
   it('Constructor()', () => {
     const list = new LL();
     expect(list.head).toBeNull();
