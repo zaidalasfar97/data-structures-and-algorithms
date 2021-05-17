@@ -112,4 +112,5 @@ class LinkedList {
 }
 
 const ll = new LinkedList();
+ll.append(5);
 module.exports = LinkedList;
